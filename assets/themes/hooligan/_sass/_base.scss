@@ -56,6 +56,7 @@ h1 {
 
 h2 {
 	font-size: 30px;
+	color:#fb6c26;
 }
 
 pre, code {
@@ -102,6 +103,8 @@ hr {
 }
 .container > footer p {
 	text-align: center; /* center align it with the container */
+	position: fixed;
+	bottom: 0; 
 }
 
 

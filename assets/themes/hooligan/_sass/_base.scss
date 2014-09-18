@@ -1,5 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Advent+Pro);
-@import url(http://fonts.googleapis.com/css?family=Oxygen);
+@import url(http://fonts.googleapis.com/css?family=Lato|Russo+One);
 
 /* Theme Vars */
 $link-color: #4cb4e8;
@@ -19,8 +18,8 @@ body {
 	color:#bbb;
 	text-shadow:1px 1px 1px #000;
 	height:100%; 
-	font-family: 'Oxygen', sans-serif;
-	font-size: 14px;
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -28,8 +27,7 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight:normal;
 	color:#999;
 	text-rendering:optimizelegibility;
-	font-family: 'Advent Pro', sans-serif;
-	/*font-family: 'Pontano Sans', sans-serif;*/
+	font-family: 'Russo One', sans-serif;
 }
 
 a {
@@ -61,6 +59,7 @@ h2 {
 
 pre, code {
 	color:#ccc;
+	font-size: 16px;
 }
 
 pre > code {

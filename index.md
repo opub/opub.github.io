@@ -10,9 +10,9 @@ tagline: Paying rent on success
   <h3>{{ post.date | date_to_string }}</h3>
   {{ post.excerpt }}
   {% if post.content contains '<!--more-->' %}
-    <p>{{ post.content | split:'<!--more-->' | first }}</p>
+    {{ post.content | split:'<!--more-->' | first }}
   {% else %}
-    <p>{{ post.content | truncatewords:50 | strip_html }}</p>
+    {{ post.content | truncatewords:50 | strip_html }}
   {% endif %}
   <a href="{{ BASE_PATH }}{{ post.url }}">Read More...</a>
 {% endfor %}

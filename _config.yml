@@ -1,6 +1,6 @@
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
-permalink: /:categories/:year/:month/:day/:title 
+permalink: /:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
@@ -18,6 +18,8 @@ author :
   linkedin : oconnor
   facebook : oconnor
 #  feedburner : feedname
+
+timezone: America/New_York
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -82,7 +84,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    provider : facebook
     disqus :
       short_name : jekyllbootstrap
     livefyre :
@@ -90,10 +92,10 @@ JB :
     intensedebate :
       account : 123abc
     facebook :
-      appid : 123
+      appid : 355197174667027
       num_posts: 5
-      width: 580
-      colorscheme: light
+      width: 680
+      colorscheme: dark
    
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.

@@ -377,3 +377,51 @@ div.posts article div.date time {
 }
 
 /* This is for your Custom Content. */
+/* Blackjack Buttons */
+/* line 4, ../_sass/_custom.scss */
+.bj_button {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  width: 150px;
+  overflow: hidden;
+}
+/* line 11, ../_sass/_custom.scss */
+.bj_button.inline li {
+  float: left;
+}
+/* line 15, ../_sass/_custom.scss */
+.bj_button li {
+  line-height: 28px;
+}
+/* line 19, ../_sass/_custom.scss */
+.bj_button a.active {
+  background: #57A957;
+  border: 1px solid #4C964D;
+  color: #FFF;
+}
+/* line 24, ../_sass/_custom.scss */
+.bj_button a span {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
+/* line 31, ../_sass/_custom.scss */
+.bj_button.inline a,
+.bj_button a {
+  padding: 3px 6px;
+  margin: 2px;
+  width: 150px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 3px;
+  text-decoration: none;
+  -moz-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 1px 0, rgba(255, 255, 255, 0.5) 0 1px 1px 0px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+}
+/* line 45, ../_sass/_custom.scss */
+.bj_button.inline a:hover,
+.bj_button a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}

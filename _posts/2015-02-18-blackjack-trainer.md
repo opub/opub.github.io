@@ -26,11 +26,11 @@ My goal was to develop a simple blackjack trainer that was specific to the rules
 <h2>Player Hand: <span id="player"></span></h2>
 
 <ul class="tag_box inline">
-<li><a href="#" onclick="play('S')">Stand</a></li>
-<li><a href="#" onclick="play('H')">Hit</a></li>
-<li><a href="#" onclick="play('D')">Double</a></li>
-<li><a href="#" onclick="play('Ds')">Dbl/Stand</a></li>
-<li id="P"><a href="#" onclick="play('P')">Split</a></li>
+<li><a href="#" onclick="play('S');return false">Stand</a></li>
+<li><a href="#" onclick="play('H');return false">Hit</a></li>
+<li><a href="#" onclick="play('D'); return false">Double</a></li>
+<li><a href="#" onclick="play('Ds');return false">Dbl/Stand</a></li>
+<li id="P"><a href="#" onclick="play('P');return false">Split</a></li>
 </ul>
 
 <h3 id="message"></h3>

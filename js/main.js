@@ -1,5 +1,12 @@
-// Add your javascript here
-// Don't forget to add it into respective layouts where this js file is needed
+// Cycle banner background images
+var banner = 0;
+function cycleBanner() {
+  banner = banner == 9 ? 0 : banner+1;
+  var b = document.getElementById('banner');
+  b.style.backgroundImage = "url('images/back" + banner + ".jpg')";
+  setTimeout(cycleBanner, 30000);
+}
+setTimeout(cycleBanner, 30000);
 
 $(document).ready(function() {
   AOS.init( {

@@ -1,3 +1,3 @@
-# Source for www.toconnor.com
+# Source for toconnor.com
 
-See <https://www.toconnor.com>
+See <https://toconnor.com>

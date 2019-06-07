@@ -24,6 +24,12 @@
  * Copyright 2012-2013 Mattia Larentis
  * http://www.apache.org/licenses/LICENSE-2.0
  */
+
+pre {
+  padding: 5px;
+  font-size: 18px;
+}
+
 .bootstrap-switch {
   display: inline-block;
   direction: ltr;
@@ -7266,6 +7272,10 @@ Created using IcoMoon - icomoon.io
   color: rgb(0, 0, 0);
 }
 
+.cc-wrench:hover i {
+  color: rgb(8, 139, 30);
+}
+
 /* Credit Style */
 a.credit {
   color: inherit;
@@ -7277,4 +7287,26 @@ a.credit {
 /* Common Style */
 .section {
   padding-bottom: 0;
+}
+
+/* Password Ratings */
+#passwordrating {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.strength0 {
+  color: #cc0000;
+}
+.strength1 {
+  color: #cc5100;
+}
+.strength2 {
+  color: #cca300;
+}
+.strength3 {
+  color: #a3cc00;
+}
+.strength4 {
+  color: #00cc00;
 }

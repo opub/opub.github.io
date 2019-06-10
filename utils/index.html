@@ -17,18 +17,20 @@
     <meta property="og:site_name" content="Ted O'Connor">
     <meta property="og:description" content="Ted O'Connor's password checker and utilities">
     <meta property="og:image" content="https://toconnor.com/images/ted.jpg">
-    <meta property="og:url" content="https://toconnor.com/password/">
+    <meta property="og:url" content="https://toconnor.com/utils/">
     <meta itemprop="name" content="Ted O'Connor">
     <meta itemprop="description" content="Ted O'Connor's password checker and utilities">
     <meta itemprop="image" content="https://toconnor.com/images/ted.jpg">
-    <title>Password Utilities</title>
-    <link rel="canonical" href="https://toconnor.com/password/">
+    <title>Common Utilities</title>
+    <link rel="canonical" href="https://toconnor.com/utils/">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
+    This is a selection of utilities that I have found useful. All of these are implemented in JavaScript in your browser. 
+    This means that nothing is transferred over the network. So it is safe to use for potentially sensitive data. 
     <div class="section">
         <div class="container">
             <div class="card" data-aos="fade-up" data-aos-offset="10">
@@ -61,10 +63,27 @@
                         <div class="card-body">
                             <div class="h4 mt-0 title">Password Strength Checker</div>
                             <label for="pwstrength">Password</label>&nbsp;
-                            <input class="text" type="text" id="pwstrength" />&nbsp;
+                            <input class="text" type="password" id="pwstrength" />&nbsp;
                             <button class="btn btn-primary" type="button" onclick="checkPassword()">Test</button>&nbsp;
                             <span id="passwordrating"></span>
                             <div id="passwordfeedback"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="card" data-aos="fade-up" data-aos-offset="10">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card-body">
+                            <div class="h4 mt-0 title">Base64 Encoder / Decoder</div>
+                            <textarea class="textarea" id="b64text"></textarea>&nbsp;
+                            <button class="btn btn-primary" type="button" onclick="encodeBase64()">Encode</button>&nbsp;
+                            <button class="btn btn-primary" type="button" onclick="decodeBase64()">Decode</button>&nbsp;                
+                            <pre id="b64results"></pre>
                         </div>
                     </div>
                 </div>

@@ -63,6 +63,18 @@ function checkPassword() {
     $('#passwordfeedback').html(feedback);
 }
 
+//Base64 utilites
+function encodeBase64() {
+    let raw = $('#b64text').val();
+    let code = window.btoa(raw);
+    $('#b64results').text(code);
+}
+function decodeBase64() {
+    let raw = $('#b64text').val();
+    let code = window.atob(raw);
+    $('#b64results').text(code);
+}
+
 // Smooth scroll for links with hashes
 $('a.smooth-scroll')
 .click(function(event) {

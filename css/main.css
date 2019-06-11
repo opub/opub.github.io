@@ -34,6 +34,10 @@ pre {
   width: 280px;
   height: 52px;
 }
+.utils {
+    padding-top: 15px;
+    font-size: 22px;
+}
 
 .bootstrap-switch {
   display: inline-block;

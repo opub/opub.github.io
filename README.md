@@ -8,4 +8,4 @@ See <https://toconnor.com>
 
 ## License
 
-This project is copyrighted © 2019 by Ted O'Connor. All Rights Reserved.
+This project is copyrighted © 2020 by Ted O'Connor. All Rights Reserved.

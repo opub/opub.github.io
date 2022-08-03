@@ -3353,7 +3353,8 @@ body {
 
 .navbar .navbar-brand {
   text-transform: uppercase;
-  font-size: 0.8571em;
+  font-size: 0.9071em;
+  font-weight: bolder;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   line-height: 1.625rem;

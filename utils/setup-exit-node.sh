@@ -5,13 +5,13 @@ set -Eeuo pipefail
 # Configure a Raspberry Pi as a Tailscale exit node.
 #
 # Usage:
-#   sudo bash setup-exit-node.sh tailscale-exit-node-1
+#   sudo bash setup-exit-node.sh [exit-node-name]
 #
 # Optional env:
 #   TAILSCALE_AUTH_KEY   Reusable auth key (skips browser login and QR).
 #   DISABLE_OPENSSH=1    Disable OpenSSH after Tailscale SSH is verified.
 #
-# Browser login (no auth key): uses --browser=false and shows a QR code via qrencode.
+# Browser login (no auth key): tailscale up --qr shows a scannable login QR code.
 #
 # Preconditions:
 #   - Raspberry Pi OS Lite / Debian-based OS, network access.
@@ -20,39 +20,10 @@ set -Eeuo pipefail
 log()  { printf '\n[%s] %s\n' "$(date '+%H:%M:%S')" "$*"; }
 fail() { printf '\nERROR: %s\n' "$*" >&2; exit 1; }
 
-# Print the browser login URL and a terminal QR code (scan from phone/laptop).
-tailscale_up_with_login_qr() {
-  apt-get install -y qrencode
-
-  local fifo qr_shown=0 url
-  fifo=$(mktemp -u)
-  mkfifo "$fifo"
-
-  tailscale up "$@" --browser=false >"$fifo" 2>&1 &
-  local ts_pid=$!
-
-  while IFS= read -r line; do
-    printf '%s\n' "$line"
-    if [[ "$qr_shown" -eq 0 ]] && [[ "$line" =~ (https://login\.tailscale\.com[^[:space:]]+) ]]; then
-      url="${BASH_REMATCH[1]}"
-      printf '\n--- Scan to sign in (Tailscale) ---\n'
-      if ! qrencode -t ANSIUTF8 "$url" 2>/dev/null \
-           && ! qrencode -t UTF8 "$url" 2>/dev/null; then
-        qrencode -t ASCII "$url"
-      fi
-      printf '\nOr open manually:\n%s\n---\n\n' "$url"
-      qr_shown=1
-    fi
-  done <"$fifo"
-
-  wait "$ts_pid" || fail "Tailscale login failed or was interrupted."
-  rm -f "$fifo"
-}
-
 [[ $EUID -eq 0 ]] || fail "Run with sudo."
-[[ $# -eq 1 ]] || fail "Usage: sudo bash $0 <exit-node-name>"
+[[ $# -le 1 ]] || fail "Usage: sudo bash $0 [exit-node-name]"
 
-EXIT_NODE_NAME="$1"
+EXIT_NODE_NAME="${1:-$(hostname)}"
 
 # Restrict the name to a simple hostname.
 [[ "$EXIT_NODE_NAME" =~ ^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$ ]] \
@@ -114,8 +85,9 @@ else
   if [[ -n "${TAILSCALE_AUTH_KEY:-}" ]]; then
     tailscale up "${up_args[@]}" --auth-key="$TAILSCALE_AUTH_KEY"
   else
-    log "Waiting for browser login; scan the QR code from another device."
-    tailscale_up_with_login_qr "${up_args[@]}"
+    log "Waiting for login; scan the QR code from another device."
+    tailscale up "${up_args[@]}" --qr \
+      || fail "Tailscale login failed or was interrupted."
   fi
   tailscale set --auto-update --stateful-filtering
 fi
